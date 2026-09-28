@@ -1,4 +1,4 @@
-﻿namespace ConsoleApp
+﻿namespace ItSchulungen.CSharpKurs.ConsoleApp
 {
     internal class Program
     {
