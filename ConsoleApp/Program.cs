@@ -85,59 +85,100 @@ namespace ItSchulungen.CSharpKurs.ConsoleApp
 
             //int[,,] würfel = new int[3, 4, 5];
 
-            // Programmfluss steuern
-            Console.WriteLine("Bitte gib Deinen Vornamen ein:");
-            string name = Console.ReadLine();
+            //// Programmfluss steuern
+            //Console.WriteLine("Bitte gib Deinen Vornamen ein:");
+            //string name = Console.ReadLine();
 
-            // Entscheidungen (if statement)
-            if (name == "Adam")
+            //// Entscheidungen (if statement)
+            //if (name == "Adam")
+            //{
+            //    Console.WriteLine("Das ist der Bereich von true, also die Bedingung ist wahr");
+            //}
+
+            //if(name == "Eva")
+            //{
+            //    Console.WriteLine("Das ist der Bereich von true, in der ja/nein Entscheidung");
+            //}
+            //else
+            //{
+            //    Console.WriteLine("Das ist der Bereich von false, in der ja/nein Entscheidung");
+            //}
+
+            //if(name == "Tobi")
+            //{
+            //    Console.WriteLine("Das ist der Bereich von true, also die Bedingung ist wahr in der maximalen Fallunterscheidung (if/elseif/else");
+            //}
+            //else if(name == "Tine")
+            //{
+            //    Console.WriteLine("Das ist der zweite Bereich von true in der maximalen Fallunterscheidung (if/elseif/else)");
+            //}
+            //else
+            //{
+            //    Console.WriteLine("Das ist der Bereich von false in der maximalen Fallunterscheidung (if/elseif/else)");
+            //}
+
+
+            //// Mehrfachauswahl mit switch
+            //switch(name)
+            //{
+            //    case "Adam":
+            //        Console.WriteLine("Mehrfachauswahl switch: Der Wert ist exakt Adam!");
+            //        break;
+            //    case "Eva":
+            //        Console.WriteLine("Mehrfachauswahl switch: Der Wert ist exakt Eva!");
+            //        break;
+            //    case "Tobi":
+            //        Console.WriteLine("Mehrfachauswahl switch: Der Wert ist exakt Tobi!");
+            //        break;
+            //    case "Tine":
+            //        Console.WriteLine("Mehrfachauswahl switch: Der Wert ist exakt Tine!");
+            //        break;
+            //    default:
+            //        Console.WriteLine("Mehrfachauswahl switch: Der Wert ist nicht aus den andern Fällen!");
+            //        break;
+
+            //}
+
+            // Programmfluss steuern mit Iterationen / Schleifen
+
+            Console.WriteLine("Zählerbasierende Schleife for:");
+            for (int i = 0; i < 10; i++)
             {
-                Console.WriteLine("Das ist der Bereich von true, also die Bedingung ist wahr");
+                if (i == 5)
+                {
+                    continue;
+                }
+                if (i > 8)
+                {
+                    break;//return;
+                }
+                Console.WriteLine($"Der Zähler hat den Wert {i}");
             }
 
-            if(name == "Eva")
+            Console.WriteLine("Kopfgesteuerte Schleife mit while:");
+            bool abbruchBedingung = false;
+            int zähler = 0;
+            while (!abbruchBedingung)
             {
-                Console.WriteLine("Das ist der Bereich von true, in der ja/nein Entscheidung");
-            }
-            else
-            {
-                Console.WriteLine("Das ist der Bereich von false, in der ja/nein Entscheidung");
-            }
-
-            if(name == "Tobi")
-            {
-                Console.WriteLine("Das ist der Bereich von true, also die Bedingung ist wahr in der maximalen Fallunterscheidung (if/elseif/else");
-            }
-            else if(name == "Tine")
-            {
-                Console.WriteLine("Das ist der zweite Bereich von true in der maximalen Fallunterscheidung (if/elseif/else)");
-            }
-            else
-            {
-                Console.WriteLine("Das ist der Bereich von false in der maximalen Fallunterscheidung (if/elseif/else)");
+                zähler++;
+                if (zähler > 5)
+                {
+                    abbruchBedingung = true;
+                }
+                Console.WriteLine($"Die Abbruchbedingung ist auf dem Wert {abbruchBedingung} der Zähler auf dem Wert {zähler}");
             }
 
-
-            // Mehrfachauswahl mit switch
-            switch(name)
+            Console.WriteLine("Fußgesteuerte Schleife mit do-while:");
+            abbruchBedingung = false;
+            do
             {
-                case "Adam":
-                    Console.WriteLine("Mehrfachauswahl switch: Der Wert ist exakt Adam!");
-                    break;
-                case "Eva":
-                    Console.WriteLine("Mehrfachauswahl switch: Der Wert ist exakt Eva!");
-                    break;
-                case "Tobi":
-                    Console.WriteLine("Mehrfachauswahl switch: Der Wert ist exakt Tobi!");
-                    break;
-                case "Tine":
-                    Console.WriteLine("Mehrfachauswahl switch: Der Wert ist exakt Tine!");
-                    break;
-                default:
-                    Console.WriteLine("Mehrfachauswahl switch: Der Wert ist nicht aus den andern Fällen!");
-                    break;
-
-            }
+                zähler--;
+                if (zähler <= 0)
+                {
+                    abbruchBedingung = true;
+                }
+                Console.WriteLine($"Die Abbruchbedinung ist auf dem Wert {abbruchBedingung} der Zähler auf dem Wert {zähler}");
+            } while (abbruchBedingung);
 
         }
     }
