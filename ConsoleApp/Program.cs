@@ -180,18 +180,57 @@ namespace ItSchulungen.CSharpKurs.ConsoleApp
             //    Console.WriteLine($"Die Abbruchbedinung ist auf dem Wert {abbruchBedingung} der Zähler auf dem Wert {zähler}");
             //} while (abbruchBedingung);
 
-            // for each statement- Schleife?
-            string[] namen = { "Sebastian", "Alexander", "Sören", "Jens", "Joel", "Tobi" };
-            for(int zähler = 0; zähler <= namen.GetUpperBound(0); zähler++)
-            {
-                string name = namen[zähler];
-                Console.WriteLine(name);
-            }
+            //// for each statement- Schleife?
+            //string[] namen = { "Sebastian", "Alexander", "Sören", "Jens", "Joel", "Tobi" };
+            //for(int zähler = 0; zähler <= namen.GetUpperBound(0); zähler++)
+            //{
+            //    string name = namen[zähler];
+            //    Console.WriteLine(name);
+            //}
 
-            foreach(string name in namen)
-            {
-                Console.WriteLine(name);
-            }
+            //foreach(string name in namen)
+            //{
+            //    Console.WriteLine(name);
+            //}
+
+            DemoRoutine();
+            DemoRoutine();
+
+            Begrüße("Tobi");
+            string name = "Sebastian";
+            Begrüße(name);
+
+        }
+
+        /// <summary>
+        /// Unsere erste Methode, eine klassiche Subroutine die einen einfachen begrüßungstext auf der console ausgibt
+        /// </summary>
+        static void DemoRoutine()
+        {
+            Console.WriteLine("Hallo aus einer Routine");
+        }
+
+
+        /// <summary>
+        /// Diese Methode gibt einen Begrüßungstext mit dem Namen einer Person auf der Konsole aus
+        /// </summary>
+        /// <param name="namen">Der Name der zu begrüßenden Person</param>
+        static void Begrüße(string namen)
+        {
+            string text = ErstelleBegüßungsText(namen);
+            //Console.WriteLine($"Hallo, {namen}!");
+            Console.WriteLine(text);
+        }
+
+        /// <summary>
+        /// Diese Methode ist eine Funktion mit Rückgabewert. Sie erstellt einen Begüßungstext für eine Person und deren Namen
+        /// </summary>
+        /// <param name="namen">Der Name der Person</param>
+        /// <returns>Der auf dem namen der Person personalisierte Begrüßungstext</returns>
+        static string ErstelleBegüßungsText(string namen)
+        {
+            string ergebnis = $"Hallo, {namen}!";
+            return ergebnis;
         }
     }
 }
