@@ -193,13 +193,18 @@ namespace ItSchulungen.CSharpKurs.ConsoleApp
             //    Console.WriteLine(name);
             //}
 
-            DemoRoutine();
-            DemoRoutine();
+            //DemoRoutine();
+            //DemoRoutine();
 
-            Begrüße("Tobi");
-            string name = "Sebastian";
-            Begrüße(name);
+            //Begrüße("Tobi");
+            //string name = "Sebastian";
+            //Begrüße(name);
 
+            int i = 1;
+            ParameterByValueDemo(i);
+            Console.WriteLine($"Main(Hauptprogramm): i hat den Wert {i}");
+            ParameterByReferenceDemo(ref i);
+            Console.WriteLine($"Main(Hauptprogramm): i hat den Wert {i}");
         }
 
         /// <summary>
@@ -209,7 +214,6 @@ namespace ItSchulungen.CSharpKurs.ConsoleApp
         {
             Console.WriteLine("Hallo aus einer Routine");
         }
-
 
         /// <summary>
         /// Diese Methode gibt einen Begrüßungstext mit dem Namen einer Person auf der Konsole aus
@@ -231,6 +235,27 @@ namespace ItSchulungen.CSharpKurs.ConsoleApp
         {
             string ergebnis = $"Hallo, {namen}!";
             return ergebnis;
+        }
+
+        /// <summary>
+        /// Einfache Subroutine die einen Integerwert erhöht und ausgibt um Wertedatentypen zu erklären
+        /// </summary>
+        /// <param name="j">Der Integerwert der zu verändern und auszugeben ist.</param>
+        static void ParameterByValueDemo(int j)
+        {
+            // j = j + 1;
+            j += 1;
+            Console.WriteLine($"ParameterByValueDemo: j hat den Wert {j}");
+        }
+
+        /// <summary>
+        /// Einfache Subroutine die einen Integerwert erhöht und ausgibt um Refrenzen auf Variablen (Pointer) zu erklären
+        /// </summary>
+        /// <param name="j">Ein Adresszeiger (ein Pointer) auf das zu übergebene originale Integerfeld</param>
+        static void ParameterByReferenceDemo(ref int j)
+        {
+            j += 1;
+            Console.WriteLine($"ParameterByReferenceDemo: j hat den Wert {j}");
         }
     }
 }
