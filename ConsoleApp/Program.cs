@@ -200,11 +200,17 @@ namespace ItSchulungen.CSharpKurs.ConsoleApp
             //string name = "Sebastian";
             //Begrüße(name);
 
-            int i = 1;
-            ParameterByValueDemo(i);
-            Console.WriteLine($"Main(Hauptprogramm): i hat den Wert {i}");
-            ParameterByReferenceDemo(ref i);
-            Console.WriteLine($"Main(Hauptprogramm): i hat den Wert {i}");
+            //int i = 1;
+            //ParameterByValueDemo(i);
+            //Console.WriteLine($"Main(Hauptprogramm): i hat den Wert {i}");
+            //ParameterByReferenceDemo(ref i);
+            //Console.WriteLine($"Main(Hauptprogramm): i hat den Wert {i}");
+
+            // Beispiele für Methodenüberladung (Methodoverloading)
+            Begrüße();
+            Begrüße("Josef");
+            Begrüße("Tobi", "Ulm");
+           
         }
 
         /// <summary>
@@ -219,7 +225,7 @@ namespace ItSchulungen.CSharpKurs.ConsoleApp
         /// Diese Methode gibt einen Begrüßungstext mit dem Namen einer Person auf der Konsole aus
         /// </summary>
         /// <param name="namen">Der Name der zu begrüßenden Person</param>
-        static void Begrüße(string namen)
+        static void Begrüße(string namen) // Sub Begrueße(namen as string)
         {
             string text = ErstelleBegüßungsText(namen);
             //Console.WriteLine($"Hallo, {namen}!");
@@ -231,7 +237,7 @@ namespace ItSchulungen.CSharpKurs.ConsoleApp
         /// </summary>
         /// <param name="namen">Der Name der Person</param>
         /// <returns>Der auf dem namen der Person personalisierte Begrüßungstext</returns>
-        static string ErstelleBegüßungsText(string namen)
+        static string ErstelleBegüßungsText(string namen) // Function ErstelleBegueungsText(namen as string) as String
         {
             string ergebnis = $"Hallo, {namen}!";
             return ergebnis;
@@ -256,6 +262,24 @@ namespace ItSchulungen.CSharpKurs.ConsoleApp
         {
             j += 1;
             Console.WriteLine($"ParameterByReferenceDemo: j hat den Wert {j}");
+        }
+
+        /// <summary>
+        /// Einfache Subroutine die eine Person grüßt
+        /// </summary>
+        static void Begrüße()
+        {
+            Console.WriteLine("Hi!");
+        }
+
+        /// <summary>
+        /// Einfache Subroutine um Methodenüberladung zu zeigen, die eine Person anhand des Vornamens und Nachnamens grüßt
+        /// </summary>
+        /// <param name="vorName">Der Vorname einer Person</param>
+        /// <param name="nachName">Der Nachname einer Person</param>
+        static void Begrüße(string vorName, string nachName)
+        {
+            Console.WriteLine($"{vorName}:{nachName}");
         }
     }
 }
