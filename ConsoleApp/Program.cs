@@ -11,6 +11,7 @@ namespace ItSchulungen.CSharpKurs.ConsoleApp
         /// <param name="args">Optionale Startargumente um Werte in das Program zu übergeben</param>
         static void Main(string[] args)
         {
+
             // Der Start unserer Anwendung
 
             //Console.WriteLine
@@ -207,10 +208,12 @@ namespace ItSchulungen.CSharpKurs.ConsoleApp
             //Console.WriteLine($"Main(Hauptprogramm): i hat den Wert {i}");
 
             // Beispiele für Methodenüberladung (Methodoverloading)
-            Begrüße();
-            Begrüße("Josef");
-            Begrüße("Tobi", "Ulm");
-           
+            //Begrüße();
+            //Begrüße("Josef");
+            //Begrüße("Tobi", "Ulm");
+
+            // Ausnahmenbehandlung
+            ExceptionDemo();
         }
 
         /// <summary>
@@ -280,6 +283,31 @@ namespace ItSchulungen.CSharpKurs.ConsoleApp
         static void Begrüße(string vorName, string nachName)
         {
             Console.WriteLine($"{vorName}:{nachName}");
+        }
+
+        static void ExceptionDemo()
+        {
+            string message = "";
+            try
+            {
+                string file = System.IO.File.ReadAllText(@"C:\test.txt");
+                
+            }
+            catch(FileNotFoundException fex)
+            {
+
+                message = "Die Datei konnte nicht gefunden werden... Bitte geben sie den korrekten Pfad an....";
+
+            }
+            catch (Exception ex)
+            {
+                message = $"Ein Fehler ist aufgetreten: {ex.Message}";
+            }
+            finally
+            {
+                Console.WriteLine(message);
+                Console.WriteLine("Der Inhalt der Textdatei folgt jetzt....");
+            }
         }
     }
 }
