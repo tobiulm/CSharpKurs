@@ -139,47 +139,59 @@ namespace ItSchulungen.CSharpKurs.ConsoleApp
 
             //}
 
-            // Programmfluss steuern mit Iterationen / Schleifen
+            //// Programmfluss steuern mit Iterationen / Schleifen
 
-            Console.WriteLine("Zählerbasierende Schleife for:");
-            for (int i = 0; i < 10; i++)
+            //Console.WriteLine("Zählerbasierende Schleife for:");
+            //for (int i = 0; i < 10; i++)
+            //{
+            //    if (i == 5)
+            //    {
+            //        continue;
+            //    }
+            //    if (i > 8)
+            //    {
+            //        break;//return;
+            //    }
+            //    Console.WriteLine($"Der Zähler hat den Wert {i}");
+            //}
+
+            //Console.WriteLine("Kopfgesteuerte Schleife mit while:");
+            //bool abbruchBedingung = false;
+            //int zähler = 0;
+            //while (!abbruchBedingung)
+            //{
+            //    zähler++;
+            //    if (zähler > 5)
+            //    {
+            //        abbruchBedingung = true;
+            //    }
+            //    Console.WriteLine($"Die Abbruchbedingung ist auf dem Wert {abbruchBedingung} der Zähler auf dem Wert {zähler}");
+            //}
+
+            //Console.WriteLine("Fußgesteuerte Schleife mit do-while:");
+            //abbruchBedingung = false;
+            //do
+            //{
+            //    zähler--;
+            //    if (zähler <= 0)
+            //    {
+            //        abbruchBedingung = true;
+            //    }
+            //    Console.WriteLine($"Die Abbruchbedinung ist auf dem Wert {abbruchBedingung} der Zähler auf dem Wert {zähler}");
+            //} while (abbruchBedingung);
+
+            // for each statement- Schleife?
+            string[] namen = { "Sebastian", "Alexander", "Sören", "Jens", "Joel", "Tobi" };
+            for(int zähler = 0; zähler <= namen.GetUpperBound(0); zähler++)
             {
-                if (i == 5)
-                {
-                    continue;
-                }
-                if (i > 8)
-                {
-                    break;//return;
-                }
-                Console.WriteLine($"Der Zähler hat den Wert {i}");
+                string name = namen[zähler];
+                Console.WriteLine(name);
             }
 
-            Console.WriteLine("Kopfgesteuerte Schleife mit while:");
-            bool abbruchBedingung = false;
-            int zähler = 0;
-            while (!abbruchBedingung)
+            foreach(string name in namen)
             {
-                zähler++;
-                if (zähler > 5)
-                {
-                    abbruchBedingung = true;
-                }
-                Console.WriteLine($"Die Abbruchbedingung ist auf dem Wert {abbruchBedingung} der Zähler auf dem Wert {zähler}");
+                Console.WriteLine(name);
             }
-
-            Console.WriteLine("Fußgesteuerte Schleife mit do-while:");
-            abbruchBedingung = false;
-            do
-            {
-                zähler--;
-                if (zähler <= 0)
-                {
-                    abbruchBedingung = true;
-                }
-                Console.WriteLine($"Die Abbruchbedinung ist auf dem Wert {abbruchBedingung} der Zähler auf dem Wert {zähler}");
-            } while (abbruchBedingung);
-
         }
     }
 }
