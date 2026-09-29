@@ -1,4 +1,4 @@
-﻿using System.Runtime.ConstrainedExecution;
+﻿using ItSchulungen.CSharpKurs.ClassLibrary;
 
 namespace ItSchulungen.CSharpKurs.ConsoleApp
 {
@@ -213,7 +213,9 @@ namespace ItSchulungen.CSharpKurs.ConsoleApp
             //Begrüße("Tobi", "Ulm");
 
             // Ausnahmenbehandlung
-            ExceptionDemo();
+            //ExceptionDemo();
+
+            Enumerationen();
         }
 
         /// <summary>
@@ -308,6 +310,20 @@ namespace ItSchulungen.CSharpKurs.ConsoleApp
                 Console.WriteLine(message);
                 Console.WriteLine("Der Inhalt der Textdatei folgt jetzt....");
             }
+        }
+
+        public static void Enumerationen()
+        {
+            //ItSchulungen.CSharpKurs.ClassLibrary.Wochentag meinTag = ClassLibrary.Wochentag.Freitag;
+            Wochentag meinTag = Wochentag.Freitag;
+            Console.WriteLine($"Mein Tag: {meinTag}");
+            ZeigeEnumerationAuswahl(meinTag);
+            ZeigeEnumerationAuswahl(Wochentag.Sonntag);
+        }
+
+        public static void ZeigeEnumerationAuswahl(Wochentag wochentag)
+        {
+            Console.WriteLine(wochentag.ToString());
         }
     }
 }
