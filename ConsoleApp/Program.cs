@@ -1,4 +1,6 @@
-﻿namespace ItSchulungen.CSharpKurs.ConsoleApp
+﻿using System.Runtime.ConstrainedExecution;
+
+namespace ItSchulungen.CSharpKurs.ConsoleApp
 {
     internal class Program
     {
@@ -32,7 +34,7 @@
 
             //// Konstanten
             //const float pi = 3.141516f;
-            
+
             /* Mehrzeiliger
              * Kommentar
              * der
@@ -82,6 +84,60 @@
             //int[,] tabelle = new int[2, 3];
 
             //int[,,] würfel = new int[3, 4, 5];
+
+            // Programmfluss steuern
+            Console.WriteLine("Bitte gib Deinen Vornamen ein:");
+            string name = Console.ReadLine();
+
+            // Entscheidungen (if statement)
+            if (name == "Adam")
+            {
+                Console.WriteLine("Das ist der Bereich von true, also die Bedingung ist wahr");
+            }
+
+            if(name == "Eva")
+            {
+                Console.WriteLine("Das ist der Bereich von true, in der ja/nein Entscheidung");
+            }
+            else
+            {
+                Console.WriteLine("Das ist der Bereich von false, in der ja/nein Entscheidung");
+            }
+
+            if(name == "Tobi")
+            {
+                Console.WriteLine("Das ist der Bereich von true, also die Bedingung ist wahr in der maximalen Fallunterscheidung (if/elseif/else");
+            }
+            else if(name == "Tine")
+            {
+                Console.WriteLine("Das ist der zweite Bereich von true in der maximalen Fallunterscheidung (if/elseif/else)");
+            }
+            else
+            {
+                Console.WriteLine("Das ist der Bereich von false in der maximalen Fallunterscheidung (if/elseif/else)");
+            }
+
+
+            // Mehrfachauswahl mit switch
+            switch(name)
+            {
+                case "Adam":
+                    Console.WriteLine("Mehrfachauswahl switch: Der Wert ist exakt Adam!");
+                    break;
+                case "Eva":
+                    Console.WriteLine("Mehrfachauswahl switch: Der Wert ist exakt Eva!");
+                    break;
+                case "Tobi":
+                    Console.WriteLine("Mehrfachauswahl switch: Der Wert ist exakt Tobi!");
+                    break;
+                case "Tine":
+                    Console.WriteLine("Mehrfachauswahl switch: Der Wert ist exakt Tine!");
+                    break;
+                default:
+                    Console.WriteLine("Mehrfachauswahl switch: Der Wert ist nicht aus den andern Fällen!");
+                    break;
+
+            }
 
         }
     }
