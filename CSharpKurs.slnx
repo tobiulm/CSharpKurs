@@ -1,3 +1,4 @@
 <Solution>
+  <Project Path="ClassLibrary/ClassLibrary.csproj" Id="691866b0-9476-485a-941d-3a56f6846dfb" />
   <Project Path="ConsoleApp/ConsoleApp.csproj" />
 </Solution>
