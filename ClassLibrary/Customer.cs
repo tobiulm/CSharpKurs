@@ -6,5 +6,14 @@ namespace ItSchulungen.CSharpKurs.ClassLibrary
 {
     public class Customer : Human
     {
+        private int _customerId;
+
+        public int CustomerId
+        {
+            get
+            { 
+                return _customerId; 
+            }
+        }
     }
 }
