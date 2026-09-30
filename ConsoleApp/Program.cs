@@ -365,6 +365,11 @@ namespace ItSchulungen.CSharpKurs.ConsoleApp
             Console.WriteLine(emp1.Greet());
             Console.WriteLine($"emp1 hat ein Gehalt von {emp1.Salary:C}");
 
+            Employee emp2 = new Employee("Eva", "Musterfrau", new DateOnly(1980, 8, 21), Department.Sales, Gender.Female);
+            Console.WriteLine(emp2.Greet());
+            Console.WriteLine($"emp2 hat ein Gehalt von {emp2.Salary:C}");
+
+
         }
     }
 }

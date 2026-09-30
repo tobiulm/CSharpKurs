@@ -129,6 +129,23 @@ namespace ItSchulungen.CSharpKurs.ClassLibrary
             }
         }
 
+        public Employee()
+        { }
+
+        public Employee(string firstName, string lastName)
+        {
+            _firstName = firstName;
+            _lastName = lastName;
+        }
+
+        public Employee(string firstName, string lastName, DateOnly dateOfBirth, Department department, Gender sex):this(firstName, lastName)
+        {
+            DateOfBirth = dateOfBirth;
+            Department = department;
+            _sex = sex;
+        }
+
+
         /// <summary>
         /// Gibt einen Begrüßungstext mit Vorname, Nachname und Abteilung zurück.
         /// </summary>
