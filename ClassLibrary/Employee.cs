@@ -43,6 +43,12 @@ namespace ItSchulungen.CSharpKurs.ClassLibrary
         /// <remarks>Wird vom HR-System oder der Datenbank als Primärschlüssel verwendet.</remarks>
         private int _employeeId;
 
+
+        /// <summary>
+        /// Liest oder schreibt den Vornamen der Person.
+        /// </summary>
+        /// <remarks>Der Setter weist das zugrunde liegende Feld nur zu, wenn sich der Wert
+        /// ändert.</remarks>
         public string FirstName
         {
             get
@@ -58,6 +64,11 @@ namespace ItSchulungen.CSharpKurs.ClassLibrary
             }
         }
 
+        /// <summary>
+        /// Liest oder schreibt den Nachnamen der Person.
+        /// </summary>
+        /// <remarks>Beim Setzen wird der interne Wert nur aktualisiert, wenn der neue Wert vom aktuellen
+        /// abweicht.</remarks>
         public string LastName
         {
             get
@@ -73,6 +84,13 @@ namespace ItSchulungen.CSharpKurs.ClassLibrary
             }
         }
 
+        /// <summary>
+        /// Liest oder schreibt das Geburtsdatum; beim Setzen wird nur akzeptiert, wenn die Differenz der Kalenderjahre zum aktuellen Jahr
+        /// größer als 15 ist.
+        /// </summary>
+        /// <remarks>Der Setter verwendet DateTime.Now.Year - value.Year zur Altersprüfung und ignoriert
+        /// Monate und Tage; Werte, die ein Alter von 15 Jahren oder jünger ergäben, werden still verworfen (keine
+        /// Ausnahme).</remarks>
         public DateOnly DateOfBirth
         {
             get
@@ -88,6 +106,12 @@ namespace ItSchulungen.CSharpKurs.ClassLibrary
             }
         }
 
+
+        /// <summary>
+        /// Ruft die Abteilung ab oder legt sie fest.
+        /// </summary>
+        /// <remarks>Beim Setzen wird SetSalary() aufgerufen, um das Gehalt entsprechend der Abteilung neu
+        /// zu berechnen.</remarks>
         public Department Department
         {
             get
@@ -101,6 +125,9 @@ namespace ItSchulungen.CSharpKurs.ClassLibrary
             }
         }
 
+        /// <summary>
+        /// Gibt oder setzt das Geschlecht der Entität.
+        /// </summary>
         public Gender Sex
         {
             get
@@ -113,6 +140,9 @@ namespace ItSchulungen.CSharpKurs.ClassLibrary
             }
         }
 
+        /// <summary>
+        /// Ruft das Gehalt ab.
+        /// </summary>
         public decimal Salary
         {
             get
@@ -121,6 +151,9 @@ namespace ItSchulungen.CSharpKurs.ClassLibrary
             }
         }
 
+        /// <summary>
+        /// Gibt die eindeutige Kennung des Mitarbeiters zurück.
+        /// </summary>
         public int EmployeeId
         {
             get
@@ -129,15 +162,32 @@ namespace ItSchulungen.CSharpKurs.ClassLibrary
             }
         }
 
+        /// <summary>
+        /// Initialisiert eine neue Instanz der Employee-Klasse.
+        /// </summary>
         public Employee()
         { }
 
+        /// <summary>
+        /// Initialisiert eine neue Instanz der Employee-Klasse mit Vor- und Nachname.
+        /// </summary>
+        /// <param name="firstName">Vorname des Mitarbeiters.</param>
+        /// <param name="lastName">Nachname des Mitarbeiters.</param>
         public Employee(string firstName, string lastName)
         {
             _firstName = firstName;
             _lastName = lastName;
         }
 
+        /// <summary>
+        /// Initialisiert eine neue Instanz der Employee-Klasse mit Vorname, Nachname, Geburtsdatum, Abteilung und
+        /// Geschlecht.
+        /// </summary>
+        /// <param name="firstName">Vorname des Mitarbeiters.</param>
+        /// <param name="lastName">Nachname des Mitarbeiters.</param>
+        /// <param name="dateOfBirth">Geburtsdatum des Mitarbeiters.</param>
+        /// <param name="department">Abteilung, der der Mitarbeiter zugeordnet ist.</param>
+        /// <param name="sex">Geschlecht des Mitarbeiters.</param>
         public Employee(string firstName, string lastName, DateOnly dateOfBirth, Department department, Gender sex):this(firstName, lastName)
         {
             DateOfBirth = dateOfBirth;
@@ -158,6 +208,12 @@ namespace ItSchulungen.CSharpKurs.ClassLibrary
             return $"Hallo, mein Name ist {_firstName} {_lastName}. Ich arbeite in der Abteilung {_department}.";
         }
 
+        /// <summary>
+        /// Setzt das interne Feld _salary auf einen vordefinierten Betrag entsprechend dem aktuellen _department.
+        /// </summary>
+        /// <remarks>Weist vordefinierte Gehälter zu: Department.IT = 52000.00m; Department.Production =
+        /// 45000.00m; Department.Sales = 50000.00m; Department.Logistics = 30000.00m; Department.Management =
+        /// 120000.00m. Bei unbekannter Abteilung wird der Standardwert 15000.00m verwendet.</remarks>
         private void SetSalary()
         {
             switch (_department)
