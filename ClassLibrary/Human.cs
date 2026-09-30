@@ -19,17 +19,17 @@ namespace ItSchulungen.CSharpKurs.ClassLibrary
         /// <summary>
         /// Der Nachname der Person.
         /// </summary>
-        private string _lastName;
+        protected string _lastName;
         /// <summary>
         /// Das Geburtsdatum.
         /// </summary>
         /// <remarks>Enthält nur das Datum ohne Zeitanteil.</remarks>
-        private DateOnly _dateOfBirth;
+        internal DateOnly _dateOfBirth;
         /// <summary>
         /// Das Geschlecht der Person.
         /// </summary>
         /// <remarks>Verwendet den Aufzählungstyp <see cref="Gender"/></remarks>
-        private Gender _sex;
+        protected internal Gender _sex;
 
         /// <summary>
         /// Liest oder schreibt den Vornamen der Person.

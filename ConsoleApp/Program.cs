@@ -375,6 +375,7 @@ namespace ItSchulungen.CSharpKurs.ConsoleApp
 
             Human james = new Human("James", "Bond");
             Console.WriteLine(james.Greet());
+            
 
             Customer cust1 = new Customer();
             
