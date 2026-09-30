@@ -215,7 +215,9 @@ namespace ItSchulungen.CSharpKurs.ConsoleApp
             // Ausnahmenbehandlung
             //ExceptionDemo();
 
-            Enumerationen();
+            //Enumerationen();
+
+            Strukturen();
         }
 
         /// <summary>
@@ -324,6 +326,28 @@ namespace ItSchulungen.CSharpKurs.ConsoleApp
         public static void ZeigeEnumerationAuswahl(Wochentag wochentag)
         {
             Console.WriteLine(wochentag.ToString());
+        }
+
+        public static void Strukturen()
+        {
+            double x;
+            double y;
+            
+            Punkt2D p1;
+            p1.X = 12.09;
+            p1.Y = 21.90;
+
+            Punkt2D p2;
+            p2.X = 34.98;
+            p2.Y = 43.89;
+
+
+            Punkt2D p3 = p1.AddiereVektor(23.21, 78.89);
+            Console.WriteLine($"Neuer Punkt p3.X={p3.X}\tp3.Y={p3.Y}");
+
+            Punkt2D p4 = p2.AddiereVektor(p3);
+            Console.WriteLine($"Neuer Punkt p4.X={p4.X}\tp4.Y={p4.Y}");
+
         }
     }
 }
