@@ -14,35 +14,120 @@ namespace ItSchulungen.CSharpKurs.ClassLibrary
         /// <summary>
         /// Vorname der Person.
         /// </summary>
-        public string FirstName;
+        private string _firstName;
         /// <summary>
         /// Der Nachname der Person.
         /// </summary>
-        public string LastName;
+        private string _lastName;
         /// <summary>
         /// Das Geburtsdatum.
         /// </summary>
         /// <remarks>Enthält nur das Datum ohne Zeitanteil.</remarks>
-        public DateOnly DateOfBirth;
+        private DateOnly _dateOfBirth;
         /// <summary>
         /// Die zugeordnete Abteilung.
         /// </summary>
-        public Department Department;
+        private Department _department;
         /// <summary>
         /// Das Geschlecht der Person.
         /// </summary>
         /// <remarks>Verwendet den Aufzählungstyp <see cref="Gender"/></remarks>
-        public Gender Sex;
+        private Gender _sex;
         /// <summary>
         /// Gehalt des Mitarbeiters als Dezimalwert in der jeweiligen Währung.
         /// </summary>
-        public decimal Salary;
+        private decimal _salary;
         /// <summary>
         /// Eindeutige Kennung des Mitarbeiters.
         /// </summary>
         /// <remarks>Wird vom HR-System oder der Datenbank als Primärschlüssel verwendet.</remarks>
-        public int EmployeeId;
+        private int _employeeId;
 
+        public string FirstName
+        {
+            get
+            {
+                return _firstName;
+            }
+            set
+            {
+                if (_firstName != value)
+                {
+                    _firstName = value;
+                }
+            }
+        }
+
+        public string LastName
+        {
+            get
+            {
+                return _lastName;
+            }
+            set
+            {
+                if (_lastName != value)
+                {
+                    _lastName = value;
+                }
+            }
+        }
+
+        public DateOnly DateOfBirth
+        {
+            get
+            {
+                return _dateOfBirth;
+            }
+            set
+            {
+                if(DateTime.Now.Year - value.Year > 15)
+                {
+                    _dateOfBirth = value;
+                }
+            }
+        }
+
+        public Department Department
+        {
+            get
+            {
+                return _department;
+            }
+            set
+            {
+                _department = value;
+                SetSalary();
+            }
+        }
+
+        public Gender Sex
+        {
+            get
+            {
+                return _sex;
+            }
+            set
+            {
+                _sex = value;
+            }
+        }
+
+        public decimal Salary
+        {
+            get
+            {
+                return _salary;
+            }
+        }
+
+        public int EmployeeId
+        {
+            get
+            {
+                return _employeeId;
+            }
+        }
 
         /// <summary>
         /// Gibt einen Begrüßungstext mit Vorname, Nachname und Abteilung zurück.
@@ -53,7 +138,32 @@ namespace ItSchulungen.CSharpKurs.ClassLibrary
         /// Abteilung {Department}.</returns>
         public string Greet()
         {
-            return $"Hallo, mein Name ist {FirstName} {LastName}. Ich arbeite in der Abteilung {Department}.";
+            return $"Hallo, mein Name ist {_firstName} {_lastName}. Ich arbeite in der Abteilung {_department}.";
+        }
+
+        private void SetSalary()
+        {
+            switch (_department)
+            {
+                case Department.IT:
+                    _salary = 52000.00m;
+                    break;
+                case Department.Production:
+                    _salary = 45000.00m;
+                    break;
+                case Department.Sales:
+                    _salary = 50000.00m;
+                    break;
+                case Department.Logistics:
+                    _salary = 30000.00m;
+                    break;
+                case Department.Management:
+                    _salary = 120000.00m;
+                    break;
+                default:
+                    _salary = 15000.00m;
+                    break;
+            }
         }
     }
 }

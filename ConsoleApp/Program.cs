@@ -217,7 +217,9 @@ namespace ItSchulungen.CSharpKurs.ConsoleApp
 
             //Enumerationen();
 
-            Strukturen();
+            //Strukturen();
+
+            ObjektOrientierteProgrammierung();
         }
 
         /// <summary>
@@ -347,6 +349,21 @@ namespace ItSchulungen.CSharpKurs.ConsoleApp
 
             Punkt2D p4 = p2.AddiereVektor(p3);
             Console.WriteLine($"Neuer Punkt p4.X={p4.X}\tp4.Y={p4.Y}");
+
+        }
+
+        public static void ObjektOrientierteProgrammierung()
+        {
+            Employee emp1;
+            emp1 = new Employee();
+            emp1.FirstName = "Max";
+            emp1.LastName = "Mustermann";
+            emp1.Department = Department.Management;
+            emp1.DateOfBirth = new DateOnly(1975, 5, 12);
+            emp1.Sex = Gender.Male;
+
+            Console.WriteLine(emp1.Greet());
+            Console.WriteLine($"emp1 hat ein Gehalt von {emp1.Salary:C}");
 
         }
     }
