@@ -370,6 +370,15 @@ namespace ItSchulungen.CSharpKurs.ConsoleApp
             Console.WriteLine($"emp2 hat ein Gehalt von {emp2.Salary:C}");
 
 
+            Employee emp3 = new Employee("Tobi", "Ulm");
+            Console.Write(emp3.Greet());
+
+            Human james = new Human("James", "Bond");
+            Console.WriteLine(james.Greet());
+
+            Customer cust1 = new Customer();
+            
+
         }
     }
 }
