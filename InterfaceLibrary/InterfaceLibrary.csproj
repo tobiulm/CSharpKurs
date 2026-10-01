@@ -4,11 +4,7 @@
     <TargetFramework>net10.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <RootNamespace>ItSchulungen.CSharpKurs.$(MSBuildProjectName.Replace(" ", "_"))</RootNamespace>
+    <RootNamespace> ItSchulungen.CSharpKurs.$(MSBuildProjectName.Replace(" ", "_"))</RootNamespace>
   </PropertyGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\InterfaceLibrary\InterfaceLibrary.csproj" />
-  </ItemGroup>
 
 </Project>

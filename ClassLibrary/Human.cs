@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ItSchulungen.CSharpKurs.InterfaceLibrary;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -10,7 +11,7 @@ namespace ItSchulungen.CSharpKurs.ClassLibrary
     /// </summary>
     /// <remarks>Platzhalterklasse zur Modellierung von Personendaten; erweitern Sie sie um Eigenschaften (z.
     /// B. Name, Alter) und Verhalten.</remarks>
-    public class Human
+    public class Human : IHuman
     {
         /// <summary>
         /// Vorname der Person.
