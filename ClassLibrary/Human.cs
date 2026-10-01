@@ -31,6 +31,8 @@ namespace ItSchulungen.CSharpKurs.ClassLibrary
         /// <remarks>Verwendet den Aufzählungstyp <see cref="Gender"/></remarks>
         protected internal Gender _sex;
 
+        public static long NumberOfPeople;
+
         /// <summary>
         /// Liest oder schreibt den Vornamen der Person.
         /// </summary>
@@ -106,10 +108,10 @@ namespace ItSchulungen.CSharpKurs.ClassLibrary
 
         public Human()
         {
-            
+            NumberOfPeople += 1;
         }
 
-        public Human(string firstName, string lastName)
+        public Human(string firstName, string lastName):this()
         {
             _firstName = firstName;
             _lastName = lastName;
@@ -131,6 +133,11 @@ namespace ItSchulungen.CSharpKurs.ClassLibrary
         public virtual string Greet()
         {
             return $"Hallo, mein Name ist {_firstName} {_lastName}.";
+        }
+
+        public static string PrintNumberOfPeople()
+        {
+            return $"Es gibt insgesamt {NumberOfPeople} Personen in unserem aktuell laufendem System.";
         }
     }
 }

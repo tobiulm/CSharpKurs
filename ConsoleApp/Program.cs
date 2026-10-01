@@ -365,19 +365,27 @@ namespace ItSchulungen.CSharpKurs.ConsoleApp
             Console.WriteLine(emp1.Greet());
             Console.WriteLine($"emp1 hat ein Gehalt von {emp1.Salary:C}");
 
+            Console.WriteLine($"Human.NumberOfPeople: {Human.NumberOfPeople}");
+
             Employee emp2 = new Employee("Eva", "Musterfrau", new DateOnly(1980, 8, 21), Department.Sales, Gender.Female);
             Console.WriteLine(emp2.Greet());
             Console.WriteLine($"emp2 hat ein Gehalt von {emp2.Salary:C}");
+
+            Console.WriteLine($"Human.NumberOfPeople: {Human.NumberOfPeople}");
 
 
             Employee emp3 = new Employee("Tobi", "Ulm");
             Console.Write(emp3.Greet());
 
+            Console.WriteLine($"Human.NumberOfPeople: {Human.NumberOfPeople}");
+
             Human james = new Human("James", "Bond");
             Console.WriteLine(james.Greet());
 
+            Console.WriteLine($"Human.NumberOfPeople: {Human.NumberOfPeople}");
 
             Customer cust1 = new Customer();
+            Console.WriteLine($"Human.NumberOfPeople: {Human.NumberOfPeople}");
 
 
             Employee emp4 = new Employee();
@@ -394,6 +402,9 @@ namespace ItSchulungen.CSharpKurs.ConsoleApp
 
             Console.WriteLine(emp4.Greet());
 
+            Console.WriteLine($"Human.NumberOfPeople: {Human.NumberOfPeople}");
+
+            Console.WriteLine(Human.PrintNumberOfPeople());
 
         }
     }
