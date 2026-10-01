@@ -11,7 +11,7 @@ namespace ItSchulungen.CSharpKurs.ClassLibrary
     /// </summary>
     /// <remarks>Platzhalterklasse zur Modellierung von Personendaten; erweitern Sie sie um Eigenschaften (z.
     /// B. Name, Alter) und Verhalten.</remarks>
-    public class Human : IHuman
+    public class Human : IHuman, IDisposable
     {
         /// <summary>
         /// Vorname der Person.
@@ -33,6 +33,7 @@ namespace ItSchulungen.CSharpKurs.ClassLibrary
         protected internal Gender _sex;
 
         public static long NumberOfPeople;
+        private bool disposedValue;
 
         /// <summary>
         /// Liest oder schreibt den Vornamen der Person.
@@ -139,6 +140,36 @@ namespace ItSchulungen.CSharpKurs.ClassLibrary
         public static string PrintNumberOfPeople()
         {
             return $"Es gibt insgesamt {NumberOfPeople} Personen in unserem aktuell laufendem System.";
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (!disposedValue)
+            {
+                if (disposing)
+                {
+                    // TODO: Verwalteten Zustand (verwaltete Objekte) bereinigen
+                    Human.NumberOfPeople -= 1;
+                }
+
+                // TODO: Nicht verwaltete Ressourcen (nicht verwaltete Objekte) freigeben und Finalizer überschreiben
+                // TODO: Große Felder auf NULL setzen
+                disposedValue = true;
+            }
+        }
+
+        // // TODO: Finalizer nur überschreiben, wenn "Dispose(bool disposing)" Code für die Freigabe nicht verwalteter Ressourcen enthält
+        // ~Human()
+        // {
+        //     // Ändern Sie diesen Code nicht. Fügen Sie Bereinigungscode in der Methode "Dispose(bool disposing)" ein.
+        //     Dispose(disposing: false);
+        // }
+
+        public void Dispose()
+        {
+            // Ändern Sie diesen Code nicht. Fügen Sie Bereinigungscode in der Methode "Dispose(bool disposing)" ein.
+            Dispose(disposing: true);
+            GC.SuppressFinalize(this);
         }
     }
 }

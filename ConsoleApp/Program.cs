@@ -366,6 +366,8 @@ namespace ItSchulungen.CSharpKurs.ConsoleApp
             Console.WriteLine($"emp1 hat ein Gehalt von {emp1.Salary:C}");
 
             Console.WriteLine($"Human.NumberOfPeople: {Human.NumberOfPeople}");
+            emp1.Dispose();
+
 
             Employee emp2 = new Employee("Eva", "Musterfrau", new DateOnly(1980, 8, 21), Department.Sales, Gender.Female);
             Console.WriteLine(emp2.Greet());
@@ -405,6 +407,7 @@ namespace ItSchulungen.CSharpKurs.ConsoleApp
             Console.WriteLine($"Human.NumberOfPeople: {Human.NumberOfPeople}");
 
             Console.WriteLine(Human.PrintNumberOfPeople());
+            
 
         }
     }
