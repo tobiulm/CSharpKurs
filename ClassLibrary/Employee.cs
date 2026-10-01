@@ -129,5 +129,23 @@ namespace ItSchulungen.CSharpKurs.ClassLibrary
                     break;
             }
         }
+
+        /// <summary>
+        /// Gibt einen Begrüßungstext mit Vorname, Nachname, Abteilung und Personalnummer zurück.
+        /// </summary>
+        /// <remarks>Verwendet die Instanz­eigenschaften FirstName, LastName, Department und EmployeeId zur
+        /// Formatierung.</remarks>
+        /// <returns>Eine formatierte Begrüßung in der Form: Hallo, mein Name ist {FirstName} {LastName}. Ich arbeite in Abteilung {_department} und meine Personalnummer lautet: {_employeeId}.
+        /// </returns>
+        public override string Greet()
+        {
+            StringBuilder result = new StringBuilder();
+            result.AppendLine("##########################################################################################################");
+            result.AppendLine(base.Greet());
+            result.AppendLine($"Ich arbeite in Abteilung {_department} und meine Personalnummer lautet: {_employeeId}.");
+            result.AppendLine("##########################################################################################################");
+            return result.ToString();
+        }
+
     }
 }

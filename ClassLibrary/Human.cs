@@ -126,13 +126,13 @@ namespace ItSchulungen.CSharpKurs.ClassLibrary
         }
 
         /// <summary>
-        /// Gibt einen Begrüßungstext mit Vorname, Nachname und Abteilung zurück.
+        /// Gibt einen Begrüßungstext mit Vorname, Nachname zurück.
         /// </summary>
         /// <remarks>Verwendet die Instanz­eigenschaften FirstName, LastName zur
         /// Formatierung.</remarks>
         /// <returns>Eine formatierte Begrüßung in der Form: Hallo, mein Name ist {FirstName} {LastName}.
         /// </returns>
-        public string Greet()
+        public virtual string Greet()
         {
             return $"Hallo, mein Name ist {_firstName} {_lastName}.";
         }
