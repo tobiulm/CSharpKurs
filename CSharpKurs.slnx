@@ -1,4 +1,5 @@
 <Solution>
   <Project Path="ClassLibrary/ClassLibrary.csproj" Id="691866b0-9476-485a-941d-3a56f6846dfb" />
   <Project Path="ConsoleApp/ConsoleApp.csproj" />
+  <Project Path="LibraryTestProject/LibraryTestProject.csproj" Id="403b8616-24af-4875-9513-405a350a89bb" />
 </Solution>
