@@ -297,9 +297,9 @@ namespace ItSchulungen.CSharpKurs.ConsoleApp
             try
             {
                 string file = System.IO.File.ReadAllText(@"C:\test.txt");
-                
+
             }
-            catch(FileNotFoundException fex)
+            catch (FileNotFoundException fex)
             {
 
                 message = "Die Datei konnte nicht gefunden werden... Bitte geben sie den korrekten Pfad an....";
@@ -334,7 +334,7 @@ namespace ItSchulungen.CSharpKurs.ConsoleApp
         {
             double x;
             double y;
-            
+
             Punkt2D p1;
             p1.X = 12.09;
             p1.Y = 21.90;
@@ -375,10 +375,25 @@ namespace ItSchulungen.CSharpKurs.ConsoleApp
 
             Human james = new Human("James", "Bond");
             Console.WriteLine(james.Greet());
-            
+
 
             Customer cust1 = new Customer();
-            
+
+
+            Employee emp4 = new Employee();
+            try
+            {
+                emp4.DateOfBirth = new DateOnly(2016, 1, 1);
+                emp4.FirstName = "Dummy";
+                emp4.LastName = "AgeTest";
+            }
+            catch(EmployeeToYoungException ex)
+            {
+                Console.WriteLine("Der Mitarbeiter kann nicht erstellt werden da er zu jung ist. Das Mindestalter beträgt 16 Jahre!");
+            }
+
+            Console.WriteLine(emp4.Greet());
+
 
         }
     }

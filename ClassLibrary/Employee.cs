@@ -67,6 +67,38 @@ namespace ItSchulungen.CSharpKurs.ClassLibrary
             }
         }
 
+
+        /// <summary>
+        /// Ruft das Geburtsdatum des Mitarbeiters ab oder legt es fest.
+        /// Beim Setzen wird überprüft, ob der Mitarbeiter mindestens 16 Jahre alt ist.
+        /// Ist dies nicht der Fall, bleibt der vorhandene Wert unverändert.
+        /// </summary>
+        /// <value>Das Geburtsdatum als <see cref="DateOnly"/>.</value>
+        /// <remarks>
+        /// Die Altersprüfung erfolgt vereinfacht anhand des Jahres (aktuelles Jahr minus Geburtsjahr).
+        /// Dadurch werden Monat und Tag nicht berücksichtigt. Für eine exaktere Prüfung sollte
+        /// das vollständige Datum verglichen werden.
+        /// </remarks>
+        new public DateOnly DateOfBirth
+        {
+            get
+            {
+                return _dateOfBirth;
+            }
+            set
+            {
+                if(DateTime.Now.Year - value.Year >=16)
+                {
+                    _dateOfBirth = value;
+                }
+                else
+                {
+                    throw new EmployeeToYoungException("Mitarbeiter müssen mindestens 16 Jahre alt sein!");
+                }
+            }
+        }
+
+
         /// <summary>
         /// Initialisiert eine neue Instanz der Employee-Klasse.
         /// </summary>

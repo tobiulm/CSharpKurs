@@ -72,12 +72,8 @@ namespace ItSchulungen.CSharpKurs.ClassLibrary
         }
 
         /// <summary>
-        /// Liest oder schreibt das Geburtsdatum; beim Setzen wird nur akzeptiert, wenn die Differenz der Kalenderjahre zum aktuellen Jahr
-        /// größer als 15 ist.
+        /// Liest oder schreibt das Geburtsdatum;
         /// </summary>
-        /// <remarks>Der Setter verwendet DateTime.Now.Year - value.Year zur Altersprüfung und ignoriert
-        /// Monate und Tage; Werte, die ein Alter von 15 Jahren oder jünger ergäben, werden still verworfen (keine
-        /// Ausnahme).</remarks>
         public DateOnly DateOfBirth
         {
             get
@@ -86,7 +82,7 @@ namespace ItSchulungen.CSharpKurs.ClassLibrary
             }
             set
             {
-                if (DateTime.Now.Year - value.Year > 15)
+                if( _dateOfBirth != value)
                 {
                     _dateOfBirth = value;
                 }
