@@ -1,5 +1,6 @@
 ﻿using ItSchulungen.CSharpKurs.ClassLibrary;
 
+
 namespace ItSchulungen.CSharpKurs.ConsoleApp
 {
     internal class Program
@@ -224,7 +225,8 @@ namespace ItSchulungen.CSharpKurs.ConsoleApp
             // DelegatesDemo();
             // AttributesDemo();
             // ExtensionMethodsDemo();
-            LambdaExpressionsDemo();
+            // LambdaExpressionsDemo();
+            LinqDbDemo();
         }
 
         /// <summary>
@@ -572,5 +574,21 @@ namespace ItSchulungen.CSharpKurs.ConsoleApp
             }
             return ergebnis;
         }
+
+        static void LinqDbDemo()
+        {
+            Models.NorthwindContext db = new Models.NorthwindContext();
+            var germanCustomers = from cust in db.Customers
+                                  where cust.Country == "Germany"
+                                  select cust;
+
+
+            foreach (Models.Customer c in germanCustomers)
+            {
+                Console.WriteLine($"{c.CompanyName}\t{c.City}");
+            }
+
+        }
+
     }
 }
