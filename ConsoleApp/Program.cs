@@ -220,7 +220,8 @@ namespace ItSchulungen.CSharpKurs.ConsoleApp
             //Strukturen();
 
             // ObjektOrientierteProgrammierung();
-            CollectionsDemo();
+            // CollectionsDemo();
+            DelegatesDemo();
         }
 
         /// <summary>
@@ -434,7 +435,28 @@ namespace ItSchulungen.CSharpKurs.ConsoleApp
             employees.Add(emp1);
 
 
+        }
 
+        static void DelegatesDemo()
+        {
+            int[] zahlen = { 32, 128, 512, 256, 16, 8, 1, 4, 2, 1024, 64 };
+
+            Sorter.BubbleSort(zahlen, SortDirection.Ascending);
+
+            foreach (int i in zahlen)
+            {
+                Console.Write($"{i}\t");
+            }
+
+
+            Sorter.BubbleSort(zahlen, SortDirection.Descending);
+
+            Console.WriteLine();
+
+            foreach (int i in zahlen)
+            {
+                Console.Write($"{i}\t");
+            }
         }
     }
 }
