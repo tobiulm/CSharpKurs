@@ -222,7 +222,8 @@ namespace ItSchulungen.CSharpKurs.ConsoleApp
             // ObjektOrientierteProgrammierung();
             // CollectionsDemo();
             // DelegatesDemo();
-            AttributesDemo();
+            // AttributesDemo();
+            ExtensionMethodsDemo();
         }
 
         /// <summary>
@@ -474,6 +475,16 @@ namespace ItSchulungen.CSharpKurs.ConsoleApp
             {
                 Console.WriteLine("Untrusted Code. Exiting application... Bye");
             }
+        }
+
+        static void ExtensionMethodsDemo()
+        {
+            Employee emp = new Employee("Tobi", "Ulm", new DateOnly(1976, 6, 5), Department.IT, Gender.Male);
+
+            short age = emp.CalculateAge();
+
+            Console.WriteLine($"Der Angestellte ist {age} Jahre alt.");
+
         }
     }
 }

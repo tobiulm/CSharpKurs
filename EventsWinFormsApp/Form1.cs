@@ -20,6 +20,9 @@ namespace EventsWinFormsApp
             theEmployee.LastName = lastNameTextBox.Text;
             theEmployee.Department = Enum.Parse<Department>(departmentsComboBox.Text);
 
+
+            // theEmployee.Calcu Die Erweiterungsmethode CalculateAge gibt es in diesem Projekt nicht! Nur in ConsoleApp!!!
+
             outputLabel.Text = $"Der Angestellte wurde angelegt! Vorname={theEmployee.FirstName}, Nachname={theEmployee.LastName}, Abteilung={theEmployee.Department}";
             EventHandlerForm childForm = new EventHandlerForm();
             childForm.Show(this);
