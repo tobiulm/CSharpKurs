@@ -9,6 +9,7 @@ namespace ItSchulungen.CSharpKurs.ClassLibrary
     /// </summary>
     /// <remarks>Verwendbar als Datenmodell für Personalinformationen. Erweiterbar um Eigenschaften wie
     /// Identifikation, Name und Rolle.</remarks>
+    [DeveloperInfo("Tobi", "tu@tobiasulm.net")]
     public class Employee : Human
     {
        

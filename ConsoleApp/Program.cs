@@ -221,7 +221,8 @@ namespace ItSchulungen.CSharpKurs.ConsoleApp
 
             // ObjektOrientierteProgrammierung();
             // CollectionsDemo();
-            DelegatesDemo();
+            // DelegatesDemo();
+            AttributesDemo();
         }
 
         /// <summary>
@@ -456,6 +457,22 @@ namespace ItSchulungen.CSharpKurs.ConsoleApp
             foreach (int i in zahlen)
             {
                 Console.Write($"{i}\t");
+            }
+        }
+
+
+        static void AttributesDemo()
+        {
+            Employee emp1 = new Employee("Bill", "Gates", new DateOnly(1961, 10, 17), Department.Management, Gender.Male);
+            DeveloperInfoAttribute attr = (DeveloperInfoAttribute)Attribute.GetCustomAttribute(emp1.GetType(), typeof(DeveloperInfoAttribute));
+            if (attr != null)
+            {
+                Console.WriteLine("Safe Code! Continue execution.....");
+                Console.WriteLine(emp1.Greet());
+            }
+            else
+            {
+                Console.WriteLine("Untrusted Code. Exiting application... Bye");
             }
         }
     }
