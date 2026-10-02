@@ -223,7 +223,8 @@ namespace ItSchulungen.CSharpKurs.ConsoleApp
             // CollectionsDemo();
             // DelegatesDemo();
             // AttributesDemo();
-            ExtensionMethodsDemo();
+            // ExtensionMethodsDemo();
+            LambdaExpressionsDemo();
         }
 
         /// <summary>
@@ -485,6 +486,91 @@ namespace ItSchulungen.CSharpKurs.ConsoleApp
 
             Console.WriteLine($"Der Angestellte ist {age} Jahre alt.");
 
+        }
+
+        static void LambdaExpressionsDemo()
+        {
+            int[] zahlen = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+
+
+            // Schritt 1
+            //Func<int, bool> filterZeiger = FiltereGeradeZahlen; //Ein DELEGATE!!!!!
+            //IEnumerable<int> geradeZahlen = zahlen.Where(filterZeiger);
+
+
+            // Schritt 2
+            //IEnumerable<int> geradeZahlen = zahlen.Where(delegate (int zahl)
+            //{
+            //    bool ergebnis = false;
+            //    if (zahl % 2 == 0)
+            //    {
+            //        ergebnis = true;
+            //    }
+            //    return ergebnis;
+            //});
+
+            // Schritt 3 => Einführung des Lambda Operators =>
+            //IEnumerable<int> geradeZahlen = zahlen.Where((int zahl) =>
+            //{
+            //    bool ergebnis = false;
+            //    if (zahl % 2 == 0)
+            //    {
+            //        ergebnis = true;
+            //    }
+            //    return ergebnis;
+            //});
+
+
+            // Schritt 4
+            //IEnumerable<int> geradeZahlen = zahlen.Where(zahl =>
+            //{
+            //    bool ergebnis = false;
+            //    if (zahl % 2 == 0)
+            //    {
+            //        ergebnis = true;
+            //    }
+            //    return ergebnis;
+            //});
+
+
+
+
+            // Schritt 5 => Lambda Expressions
+            //IEnumerable<int> geradeZahlen = zahlen.Where(zahl =>
+
+
+            //    zahl % 2 == 0
+
+            //);
+            //IEnumerable<int> geradeZahlen = zahlen.Where(zahl => zahl % 2 == 0);
+
+
+            //var geradeZahlen = zahlen.Where(zahl => zahl % 2 == 0); // Typeinferencing
+
+
+            // LINQ  = Language INtegrated Query
+            var geradeZahlen = from zahl in zahlen
+                               where zahl % 2 == 0
+                               select zahl;
+
+
+
+
+            foreach (int zahl in geradeZahlen)
+            {
+                Console.Write($"{zahl}\t");
+            }
+        }
+
+
+        static bool FiltereGeradeZahlen(int zahl)
+        {
+            bool ergebnis = false;
+            if( zahl %2 == 0)
+            {
+                ergebnis = true;
+            }
+            return ergebnis;
         }
     }
 }
