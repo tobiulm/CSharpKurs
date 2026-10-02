@@ -19,7 +19,7 @@ namespace EventsWinFormsApp
         private void EventHandlerForm_Load(object sender, EventArgs e)
         {
             Form1.theEmployee.DepartmentChanged += TheEmployee_DepartmentChanged;
-            Form1.theEmployee.DepartmentChanged += delegate
+            Form1.theEmployee.DepartmentChanged += delegate(DepartmentChangedEventArgs args)
             {
                 outputLabel.Text = $"Die Abteilung wurde um {DateTime.Now.ToLongTimeString()} von {args.OldDepartment} auf {args.NewDepartment} geändert!";
             };
