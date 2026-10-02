@@ -219,7 +219,8 @@ namespace ItSchulungen.CSharpKurs.ConsoleApp
 
             //Strukturen();
 
-            ObjektOrientierteProgrammierung();
+            // ObjektOrientierteProgrammierung();
+            CollectionsDemo();
         }
 
         /// <summary>
@@ -408,6 +409,31 @@ namespace ItSchulungen.CSharpKurs.ConsoleApp
 
             Console.WriteLine(Human.PrintNumberOfPeople());
             
+
+        }
+
+
+        static void CollectionsDemo()
+        {
+            string[] names = new string[3];
+            
+            System.Collections.ArrayList myList = new System.Collections.ArrayList();
+            myList.Add("Tobi");
+            Console.WriteLine(myList[0]);
+
+            myList.Add(42);
+
+            // myList[1]
+
+            System.Collections.Generic.List<int> newList = new List<int>();
+            List<Employee> employees = new List<Employee>();
+
+            Employee emp1 = new Employee("Max", "Mustermann", new DateOnly(1970, 1, 1), Department.Management, Gender.Male);
+
+
+            employees.Add(emp1);
+
+
 
         }
     }
