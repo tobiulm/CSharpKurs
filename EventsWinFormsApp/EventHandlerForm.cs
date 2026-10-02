@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ItSchulungen.CSharpKurs.ClassLibrary;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -21,12 +22,12 @@ namespace EventsWinFormsApp
 
         }
 
-        private void TheEmployee_DepartmentChanged()
+        private void TheEmployee_DepartmentChanged(DepartmentChangedEventArgs args)
         {
-            outputLabel.Text = $"Die Abteilung wurde um {DateTime.Now.ToLongTimeString()} geändert!";
+            outputLabel.Text = $"Die Abteilung wurde um {DateTime.Now.ToLongTimeString()} von {args.OldDepartment} auf {args.NewDepartment} geändert!";
         }
 
-        private void AnotherEventHandler()
+        private void AnotherEventHandler(DepartmentChangedEventArgs args)
         {
             MessageBox.Show("Die zweite Logik die ausgeführt wird wenn das Employee.DepartmentChanged Ereignis ausgelöst wurde");
         }

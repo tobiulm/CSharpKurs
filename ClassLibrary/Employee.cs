@@ -42,11 +42,12 @@ namespace ItSchulungen.CSharpKurs.ClassLibrary
             {
                 if (_department != value)
                 {
+                    Department oldDept = _department;
                     _department = value;
                     SetSalary(); // Berechne das Gehalt neu auf basis der Abteilung
                     if (DepartmentChanged != null) // Gibt es irgendjemanden den die Änderung der Abteilung interessiert?
                     {
-                        DepartmentChanged(); // Benachrichtige alle die die Änderung der Abteilung mitbekommen wollen,das die Abteilung geändert wurde!
+                        DepartmentChanged(new DepartmentChangedEventArgs(oldDept, _department)); // Benachrichtige alle die die Änderung der Abteilung mitbekommen wollen,das die Abteilung geändert wurde!
                     }
                 }
             }
@@ -106,7 +107,7 @@ namespace ItSchulungen.CSharpKurs.ClassLibrary
         }
 
 
-        public delegate void DepartmentChangedEventHandler();
+        public delegate void DepartmentChangedEventHandler(DepartmentChangedEventArgs args);
         public event DepartmentChangedEventHandler DepartmentChanged;
 
 
